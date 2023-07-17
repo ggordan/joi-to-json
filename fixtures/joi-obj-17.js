@@ -19,6 +19,7 @@ module.exports = joi.object().keys({
   avatar: joi.string().required().uri(),
   password: joi.forbidden(),
   email: joi.string().email(),
+  strippedField: joi.string().strip(),
   ip: joi.string().ip({ version: ['ipv4', 'ipv6'] }),
   hostname: joi.string().hostname().insensitive(),
   type: joi.string().valid('user'),

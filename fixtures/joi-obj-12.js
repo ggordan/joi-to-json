@@ -14,6 +14,9 @@ module.exports = joi.object().keys({
   avatar: joi.string().required().uri(),
   password: joi.forbidden(),
   email: joi.string().email(),
+  strippedField: joi.string().strip().meta({
+    type: 'CustomType'
+  }),
   ip: joi.string().ip({ version: ['ipv4', 'ipv6'] }),
   hostname: joi.string().hostname().insensitive(),
   type: joi.string().valid('user'),
@@ -69,7 +72,7 @@ module.exports = joi.object().keys({
     .description('Some kind of list')
     .optional(),
   readOnlyTrue: joi.string().meta({ readOnly: true }),
-  readOnlyFalse: joi.string().meta({ readOnly: false }),
+  readOnlyFalse: joi.string().meta({ readOnmly: false }),
   writeOnlyTrue: joi.string().meta({ writeOnly: true }),
   writeOnlyFalse: joi.string().meta({ writeOnly: false })
 }).or('guid', 'uuid')
